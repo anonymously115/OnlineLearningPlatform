@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<h1>研修カリキュラム「{{ curriculum }}」のテスト{% if object %}「{{object.exam}}」{% endif %}{{ object|yesno:'編集,登録'}}</h1>
+
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="curriculum_id" value="{{ curriculum.id }}" id="id_curriculum_id" />
+    {{ form.as_p }}
+    <input type="submit" value="{{ object|yesno:'更新,登録'}}" />
+</form>
+<div>
+    <a href="JavaScript:history.back()">&lt; 戻る</a>
+</div>
+
+{% endblock %}

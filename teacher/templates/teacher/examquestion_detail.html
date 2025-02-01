@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<h1>{{ object }}</h1>
+<table border="1">
+    <tr><th align="right">設問文</th><td>{{ object }}</td></tr>
+    <tr><th align="right">配点</th><td>{{ object.score }}</td></tr>
+</table>
+<form action="{% url 'teacher:exam_question-update' object.id %}">
+    <input type="submit" value="テスト設問編集" />
+</form>
+<h2>テスト設問選択肢</h2>
+{% if choices %}
+<table border="1">
+    <tr><th>#</th><th>選択文</th><th>正解フラグ</th></tr>
+    {% for choice in choices %}
+    <tr>
+        <td align="right">{{ choice.choice_no }}</td>
+        <td><a href="{% url 'teacher:exam_question_choice-detail' choice.id %}">{{ choice.choice_text }}</a></td>
+        <td align="center">{{ choice.correct_answer_flag }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+<form action="{% url 'teacher:exam_question_choice-create' %}">
+    <input type="hidden" name="question_id" value="{{ object.id }}" id="id_question_id" />
+    <input type="submit" value="選択肢作成" />
+</form>
+<form action="{% url 'teacher:exam_question-delete' object.id %}">
+    <input type="submit" value="テスト設問削除" />
+</form>
+<a href="{% url 'teacher:examination-detail' object.exam_id %}">&lt; 戻る</a>
+{% endblock %}

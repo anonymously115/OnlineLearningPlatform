@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+{% if False %}
+<h1>{{ object }}</h1>
+<a href="JavaScript:history.back()">&lt; 戻る</a>
+{% endif %}
+<table border="1">
+    <tr><th align="right">グループ</th><td><a href="{% url 'company:group-detail' object.group.id %}">{{ object.group }}</a></td></tr>
+    <tr><th align="right">法人受講生</th><td><a href="{% url 'company:corporate_attending_student-detail' object.student.id %}">{{ object.student }}</a></td></tr>
+</table>
+<td><a href="{% url 'company:group_student-delete' object.id %}">削除</a></td>
+{% endblock %}

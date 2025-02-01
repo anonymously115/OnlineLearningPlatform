@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<h1>クーポン</h1>
+<table border="1">
+    <tr><th align="right">コース名</th><th align="left">{{ object.course }}</th></tr>
+    {% if object.disount_rate %}
+    <tr><th align="right">割引率</th><td>{{ object.discount_rate }}</td></tr>
+    {% endif %}
+    {% if object.disount_amount %}
+    <tr><th align="right">値引額</th><td>{{ object.discount_amount }}</td></tr>
+    {% endif %}
+    <tr><th align="right">適用開始年月日</th><td>{{ object.applying_start_date }}</td></tr>
+    <tr><th align="right">適用終了年月日</th><td>{{ object.applying_end_date }}</td></tr>
+    <tr><th align="right">使用可能人数</th><td>{{ object.available_count }}</td></tr>
+    <tr><th align="right">クーポン発行年月日</th><td>{{ object.coupon_issuing_date }}</td></tr>
+</table>
+<a href="{% url 'teacher:coupon-update' object.id %}">クーポン編集</a>
+<a href="{% url 'teacher:coupon-delete' object.id %}">クーポン削除</a>
+<a href="{% url 'teacher:course-detail' object.course_id %}">&lt; 戻る</a>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<h1>コース「{{ object.course }}」</h1>
+
+<table border="1">
+    <tr><th>コース名</th><th>購入年月日</th></tr>
+    <tr><td>{{ object.course }}</td><td align="center">{{ object.purchase_date }}</td></tr>
+</table>
+
+{% if attending %}
+<a href="{% url 'student:course_attending-detail' attending.id %}">受講する</a>
+<form action="{% url 'student:course_attending-update' attending.id %}">
+    <input type="hidden" id="attending_id" name="attending_id" value="{{ attending.id }}" />
+    <input type="submit" value="評価・フィードバック" />
+</form>
+{% else %}
+<form action="{% url 'student:course_attending-create' %}" method="post">
+    {% csrf_token %}
+    <input type="hidden" id="purchase_id" name="purchase_id" value="{{ object.id }}" />
+    <input type="submit" value="受講開始" />
+</form>
+{% endif %}
+<h2>セクション</h2>
+{% if sections %}
+<table border="1">
+    <tr><th>#</th><th>セクション名</th></tr>
+    {% for section in sections %}
+    <tr><td align="right">{{ section.id }}</td><td>{{ section }}</td></tr>
+    {% endfor %}
+</table>
+{% endif %}
+
+<div>
+    <a href="JavaScript:history.back()">&lt; 戻る</a>
+</div>
+
+    {% endblock %}

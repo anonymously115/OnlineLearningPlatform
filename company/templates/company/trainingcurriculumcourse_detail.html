@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+{% if False %}
+<h1>{{ object }}</h1>
+{% endif %}
+<table border="1">
+    <tr><th align="right">カリキュラム</th><td>{{ object.curriculum }}</td></tr>
+    <tr><th align="right">コース</th><td>{{ object.course }}</td></tr>
+    <tr><th align="right">受講順</th><td>{{ object.attending_order }}</td></tr>
+</table>
+<a href="{% url 'company:curriculum_course-delete' object.id %}">削除</a>
+<a href="{% url 'company:training_curriculum-detail' object.curriculum.id %}">&lt; 戻る</a>
+{% endblock %}

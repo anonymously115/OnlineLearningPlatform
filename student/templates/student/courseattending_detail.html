@@ -1,0 +1,57 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<h1>コース「{{ object.course }}」</h1>
+
+<table border="1">
+    <tr><th align="right">コース</th><td>{{ object.course }}</td></tr>
+    <tr><th align="right">コース受講開始日時</th><td>{{ object.start_time }}</td></tr>
+    <tr><th align="right">コース受講完了日時</th><td>{{ object.complete_time }}</td></tr>
+    <tr><th align="right">５段階評価</th><td>{{ object.five_stage_rating }}</td></tr>
+    <tr><th align="right">感想</th><td>{{ object.feedback }}</td></tr>
+</table>
+<form action="{% url 'student:course_attending-update' object.id %}">
+    <input type="hidden" id="attending_id" name="attending_id" value="{{ object.id }}" />
+    <input type="submit" value="評価・フィードバック" />
+</form>
+
+{% if attendings %}
+<h2>セクション</h2>
+<table border="1">
+    <tr><th>#</th><th>セクション名</th><th>受講開始日時</th><th>受講完了日時</th></tr>
+    {% for attending in attendings %}
+    <tr>
+        <td align="right">{{ attending.section.section_no }}</td>
+        <td><a href="{% url 'student:section_attending-detail' attending.id %}">{{ attending.section }}</a></td>
+        <td align="center">{{ attending.start_time }}</td>
+        <td align="center">{{ attending.complete_time }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+{% if sections %}
+<h2>未受講セクション</h2>
+<table border="1">
+    <tr><th>#</th><th>セクション名</th><th></th></tr>
+    {% for section in sections %}
+    <tr>
+        <td align="right">{{ section.section_no }}</td>
+        <td>{{ section }}</td>
+        <td>
+            <form action="{% url 'student:section_attending-create' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="course_attending_id" value="{{ object.id }}" id="id_course_attending_id" />
+                <input type="hidden" name="section_id" value="{{ section.id }}" id="id_section_id" />
+                <input type="submit" value="受講開始" />
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+
+<div>
+    <a href="JavaScript:history.back()">&lt; 戻る</a>
+</div>
+
+{% endblock %}

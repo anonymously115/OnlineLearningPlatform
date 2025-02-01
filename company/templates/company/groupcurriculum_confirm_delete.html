@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<p>
+    <table border="1">
+        <tr><th align="right">グループ</th><td>{{ object.group }}</td></tr>
+        <tr><th align="right">カリキュラム</th><td>{{ object.curriculum }}</td></tr>
+    </table>
+    を削除しますか。
+</p>
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="submit" value="削除する" />
+</form>
+
+<div>
+    <p><a href="JavaScript:history.back()">&lt; 戻る</a></p>
+</div>
+
+{% endblock %}

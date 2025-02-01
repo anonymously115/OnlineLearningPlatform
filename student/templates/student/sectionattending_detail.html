@@ -1,0 +1,71 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<h1>セクション「{{ object.section }}」</h1>
+
+<table border="1">
+    <tr><th align="right">セクション</th><td>{{ object.section }}</td></tr>
+    <tr><th align="right">セクション受講開始日時</th><td>{{ object.start_time }}</td></tr>
+    <tr><th align="right">セクション受講完了日時</th><td>{{ object.complete_time }}</td></tr>
+</table>
+
+{% if attendings %}
+<h2>講義動画・テスト</h2>
+<table border="1">
+    <tr><th>#</th><th>コンテンツ名</th><th>受講開始日時</th><th>受講完了日時</th></tr>
+    {% for attending in attendings %}
+    <tr>
+        <td align="right">{{ attending.content.content_no }}</td>
+        <td>
+            {% if attending.content.content_flag %}
+            <a href="{% url 'student:exam_result-detail' attending.id %}">
+                {{ attending.content }}
+            </a>
+            {% else %}
+            <a href="{% url 'student:content_attending-detail' attending.id %}">
+                {{ attending.content }}
+            </a>
+            {% endif %}
+        </td>
+        <td align="center">{{ attending.start_time }}</td>
+        <td align="center">{{ attending.complete_time }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+{% if contents %}
+<h2>未受講コンテンツ</h2>
+<table border="1">
+    <tr><th>#</th><th>コンテンツ名</th><th></th></tr>
+    {% for content in contents %}
+    <tr>
+        <td align="right">{{ content.content_no }}</td>
+        <td>{{ content }}</td>
+        <td>
+            {% if content.content_flag %}
+            <form action="{% url 'student:exam_result-create' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="section_attending_id" value="{{ object.id }}" id="id_section_attending_id" />
+                <input type="hidden" name="content_id" value="{{ content.id }}" id="id_content_id" />
+                <input type="submit" value="テスト開始" />
+            </form>
+            {% else %}
+            <form action="{% url 'student:content_attending-create' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="section_attending_id" value="{{ object.id }}" id="id_section_attending_id" />
+                <input type="hidden" name="content_id" value="{{ content.id }}" id="id_content_id" />
+                <input type="submit" value="受講開始" />
+            </form>
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+
+
+<div>
+    <a href="JavaScript:history.back()">&lt; 戻る</a>
+</div>
+
+{% endblock %}

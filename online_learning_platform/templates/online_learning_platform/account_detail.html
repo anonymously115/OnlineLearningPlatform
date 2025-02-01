@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+{% block content %}
+{% if object.teacher_flag %}
+<p>
+    <div><a href="{% url 'teacher:index' %}">{{ teacher.profile }}</a></div>
+    <a href="{% url 'online_learning_platform:teacher-update' %}">講師プロフィール編集</a>
+    <a href="{% url 'online_learning_platform:teacher-delete' %}">講師プロフィール削除</a>
+</p>
+{% else %}
+<div>
+    <form action="{% url 'online_learning_platform:teacher-create' %}">
+        <input type="submit" value="講師プロフィール登録" />
+    </form>
+</div>
+{% endif %}
+{% if object.student_flag %}
+<p>
+    <div><a href="{% url 'student:index' %}">{{ student.pay_info }}</a></div>
+    <a href="{% url 'online_learning_platform:student-update' %}">支払情報編集</a>
+    <a href="{% url 'online_learning_platform:student-delete' %}">支払情報削除</a>
+</p>
+    {% else %}
+<div>
+    <form action="{% url 'online_learning_platform:student-create' %}">
+        <input type="submit" value="支払情報登録" />
+    </form>
+</div>
+    {% endif %}
+{% endblock %}

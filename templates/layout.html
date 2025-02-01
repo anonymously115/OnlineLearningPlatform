@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>オンライン学習プラットフォーム</title>
+</head>
+<body>
+    <nav>
+        <a href='{% url "online_learning_platform:index" %}'>オンライン学習プラットフォーム</a>
+        <a href='{% url "company:index" %}'>企業向けサービス</a>
+        {% if user.is_authenticated %}
+        {{ user }}
+        {% else %}
+        <a href='{% url "login" %}'>Login</a>
+        <a href='{% url "accounts:signup" %}'>Sign up</a>
+        {% endif %}
+    </nav>
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
+    {% if user.is_authenticated %}
+    <form action='{% url "logout" %}' method="post">
+        {% csrf_token %}
+        <input type="submit" value="Logout" onclick="return confirm('Are you sure you want to log out?')" />
+    </form>
+    {% endif %}
+</body>
+</html>

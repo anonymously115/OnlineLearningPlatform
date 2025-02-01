@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<h1>{{ object }}</h1>
+<form action="{% url 'teacher:section-update' object.id %}">
+    <input type="submit" value="セクション名編集" />
+</form>
+<h2>講義動画</h2>
+{% if videos %}
+<table border="1">
+    <tr><th>#</th><th>コンテンツ名</th><th>講義時間</th></tr>
+    {% for video in videos %}
+    <tr>
+        <td align="right">{{ video.content_no }}</td>
+        <td><a href="{% url 'teacher:lecture_video-detail' video.id %}">{{ video }}</a></td>
+        <td align="right">{{ video.lecture_time }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+<form action="{% url 'teacher:lecture_video-create' %}">
+    <input type="hidden" id="section_id" name="section_id" value="{{ object.id }}" />
+    <input type="submit" value="講義動画登録" />
+</form>
+{% if exam %}
+<h2>テスト「{{ exam }}」</h2>
+<table border="1">
+    <tr><th align="right">テスト名</th><td>{{ exam }}</td></tr>
+    <tr><th align="right">解答制限時間</th><td>{{ exam.answer_limit_time }}</td></tr>
+</table>
+<form action="{% url 'teacher:examination-detail' exam.id %}">
+    <input type="submit" value="設問作成" />
+</form>
+{% else %}
+<h2>テスト</h2>
+<form action="{% url 'teacher:examination-create' %}">
+    <input type="hidden" id="section_id" name="section_id" value="{{ object.id }}" />
+    <input type="submit" value="テスト作成" />
+</form>
+{% endif %}
+<form action="{% url 'teacher:section-delete' object.id %}">
+    <input type="submit" value="セクション削除" />
+</form>
+<a href="{% url 'teacher:course-detail' object.course_id %}">&lt; 戻る</a>
+{% endblock %}

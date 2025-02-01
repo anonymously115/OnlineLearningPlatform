@@ -1,0 +1,246 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <Name>OnlineLearningPlatform</Name>
+    <RootNamespace>OnlineLearningPlatform</RootNamespace>
+    <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
+    <TestFramework>Pytest</TestFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>c09ec4bf-2a66-4611-8d7b-6f6eaee10612</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <ProjectTypeGuids>{5F0BE9CA-D677-4A4D-8806-6076C0FAAD37};{349c5851-65df-11da-9384-00065b846f21};{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <StartupFile>manage.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <LaunchProvider>Django launcher</LaunchProvider>
+    <DjangoSettingsModule>OnlineLearningPlatform.settings</DjangoSettingsModule>
+    <WebBrowserUrl>http://localhost</WebBrowserUrl>
+    <OutputPath>.</OutputPath>
+    <SuppressCollectPythonCloudServiceFiles>true</SuppressCollectPythonCloudServiceFiles>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="accounts\admin.py" />
+    <Compile Include="accounts\apps.py" />
+    <Compile Include="accounts\migrations\__init__.py" />
+    <Compile Include="accounts\models.py" />
+    <Compile Include="accounts\tests.py" />
+    <Compile Include="accounts\urls.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="accounts\views.py" />
+    <Compile Include="accounts\__init__.py" />
+    <Compile Include="company\admin.py" />
+    <Compile Include="company\apps.py" />
+    <Compile Include="company\forms.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="company\migrations\__init__.py" />
+    <Compile Include="company\models.py" />
+    <Compile Include="company\tests.py" />
+    <Compile Include="company\urls.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="company\views.py" />
+    <Compile Include="company\__init__.py" />
+    <Compile Include="manage.py" />
+    <Compile Include="OnlineLearningPlatform\__init__.py" />
+    <Compile Include="OnlineLearningPlatform\settings.py" />
+    <Compile Include="OnlineLearningPlatform\urls.py" />
+    <Compile Include="OnlineLearningPlatform\wsgi.py" />
+    <Compile Include="online_learning_platform\admin.py" />
+    <Compile Include="online_learning_platform\apps.py" />
+    <Compile Include="online_learning_platform\migrations\__init__.py" />
+    <Compile Include="online_learning_platform\models.py" />
+    <Compile Include="online_learning_platform\tests.py" />
+    <Compile Include="online_learning_platform\urls.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="online_learning_platform\views.py" />
+    <Compile Include="online_learning_platform\__init__.py" />
+    <Compile Include="student\admin.py" />
+    <Compile Include="student\apps.py" />
+    <Compile Include="student\forms.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="student\migrations\__init__.py" />
+    <Compile Include="student\models.py" />
+    <Compile Include="student\tests.py" />
+    <Compile Include="student\urls.py" />
+    <Compile Include="student\views.py" />
+    <Compile Include="student\__init__.py" />
+    <Compile Include="teacher\admin.py" />
+    <Compile Include="teacher\apps.py" />
+    <Compile Include="teacher\migrations\__init__.py" />
+    <Compile Include="teacher\models.py" />
+    <Compile Include="teacher\tests.py" />
+    <Compile Include="teacher\urls.py" />
+    <Compile Include="teacher\views.py" />
+    <Compile Include="teacher\__init__.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="accounts\templates\accounts\signup.html" />
+    <Content Include="company\templates\company\company_confirm_delete.html" />
+    <Content Include="company\templates\company\company_detail.html" />
+    <Content Include="company\templates\company\company_form.html" />
+    <Content Include="company\templates\company\company_list.html" />
+    <Content Include="company\templates\company\corporateattendingstudentcurriculum_confirm_delete.html" />
+    <Content Include="company\templates\company\corporateattendingstudentcurriculum_detail.html" />
+    <Content Include="company\templates\company\corporateattendingstudentcurriculum_form.html" />
+    <Content Include="company\templates\company\corporateattendingstudent_confirm_delete.html" />
+    <Content Include="company\templates\company\corporateattendingstudent_detail.html" />
+    <Content Include="company\templates\company\corporateattendingstudent_form.html" />
+    <Content Include="company\templates\company\groupcurriculum_confirm_delete.html" />
+    <Content Include="company\templates\company\groupcurriculum_detail.html" />
+    <Content Include="company\templates\company\groupcurriculum_form.html" />
+    <Content Include="company\templates\company\groupstudent_confirm_delete.html" />
+    <Content Include="company\templates\company\groupstudent_detail.html" />
+    <Content Include="company\templates\company\groupstudent_form.html" />
+    <Content Include="company\templates\company\group_confirm_delete.html" />
+    <Content Include="company\templates\company\group_detail.html" />
+    <Content Include="company\templates\company\group_form.html" />
+    <Content Include="company\templates\company\trainingcurriculumcourse_confirm_delete.html" />
+    <Content Include="company\templates\company\trainingcurriculumcourse_detail.html" />
+    <Content Include="company\templates\company\trainingcurriculumcourse_form.html" />
+    <Content Include="company\templates\company\trainingcurriculumexam_confirm_delete.html" />
+    <Content Include="company\templates\company\trainingcurriculumexam_detail.html" />
+    <Content Include="company\templates\company\trainingcurriculumexam_form.html" />
+    <Content Include="company\templates\company\trainingcurriculum_confirm_delete.html" />
+    <Content Include="company\templates\company\trainingcurriculum_detail.html" />
+    <Content Include="company\templates\company\trainingcurriculum_form.html" />
+    <Content Include="online_learning_platform\templates\online_learning_platform\account_detail.html" />
+    <Content Include="online_learning_platform\templates\online_learning_platform\student_confirm_delete.html" />
+    <Content Include="online_learning_platform\templates\online_learning_platform\student_detail.html" />
+    <Content Include="online_learning_platform\templates\online_learning_platform\teacher_confirm_delete.html" />
+    <Content Include="online_learning_platform\templates\online_learning_platform\student_form.html" />
+    <Content Include="online_learning_platform\templates\online_learning_platform\teacher_form.html" />
+    <Content Include="requirements.txt" />
+    <Content Include="online_learning_platform\templates\online_learning_platform\teacher_detail.html" />
+    <Content Include="student\templates\student\comment_form.html" />
+    <Content Include="student\templates\student\contentattending_detail.html" />
+    <Content Include="student\templates\student\examresult_detail.html" />
+    <Content Include="student\templates\student\examresult_form.html" />
+    <Content Include="student\templates\student\contentattending_form.html" />
+    <Content Include="student\templates\student\courseattending_detail.html" />
+    <Content Include="student\templates\student\courseattending_form.html" />
+    <Content Include="student\templates\student\coursepurchase_detail.html" />
+    <Content Include="student\templates\student\coursepurchase_form.html" />
+    <Content Include="student\templates\student\question_confirm_delete.html" />
+    <Content Include="student\templates\student\question_detail.html" />
+    <Content Include="student\templates\student\question_form.html" />
+    <Content Include="student\templates\student\sectionattending_detail.html" />
+    <Content Include="student\templates\student\sectionattending_form.html" />
+    <Content Include="teacher\templates\teacher\course_list.html" />
+    <Content Include="teacher\templates\teacher\coupon_confirm_delete.html" />
+    <Content Include="teacher\templates\teacher\coupon_detail.html" />
+    <Content Include="teacher\templates\teacher\coupon_form.html" />
+    <Content Include="teacher\templates\teacher\course_confirm_delete.html" />
+    <Content Include="teacher\templates\teacher\course_detail.html" />
+    <Content Include="teacher\templates\teacher\course_form.html" />
+    <Content Include="teacher\templates\teacher\examination_confirm_delete.html" />
+    <Content Include="teacher\templates\teacher\examination_detail.html" />
+    <Content Include="teacher\templates\teacher\examination_form.html" />
+    <Content Include="teacher\templates\teacher\examquestionchoice_confirm_delete.html" />
+    <Content Include="teacher\templates\teacher\examquestionchoice_detail.html" />
+    <Content Include="teacher\templates\teacher\examquestionchoice_form.html" />
+    <Content Include="teacher\templates\teacher\examquestion_confirm_delete.html" />
+    <Content Include="teacher\templates\teacher\examquestion_detail.html" />
+    <Content Include="teacher\templates\teacher\examquestion_form.html" />
+    <Content Include="teacher\templates\teacher\lecturevideo_confirm_delete.html" />
+    <Content Include="teacher\templates\teacher\lecturevideo_detail.html" />
+    <Content Include="teacher\templates\teacher\lecturevideo_form.html" />
+    <Content Include="teacher\templates\teacher\section_confirm_delete.html" />
+    <Content Include="teacher\templates\teacher\section_detail.html" />
+    <Content Include="teacher\templates\teacher\section_form.html" />
+    <Content Include="templates\layout.html" />
+    <Content Include="templates\registration\logged_out.html" />
+    <Content Include="templates\registration\login.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="accounts\" />
+    <Folder Include="accounts\migrations\" />
+    <Folder Include="accounts\templates\" />
+    <Folder Include="accounts\templates\accounts\" />
+    <Folder Include="company\" />
+    <Folder Include="company\migrations\" />
+    <Folder Include="company\templates\" />
+    <Folder Include="company\templates\company\" />
+    <Folder Include="OnlineLearningPlatform\" />
+    <Folder Include="online_learning_platform\" />
+    <Folder Include="online_learning_platform\migrations\" />
+    <Folder Include="online_learning_platform\templates\" />
+    <Folder Include="online_learning_platform\templates\online_learning_platform\" />
+    <Folder Include="student\" />
+    <Folder Include="student\migrations\" />
+    <Folder Include="student\templates\" />
+    <Folder Include="student\templates\student\" />
+    <Folder Include="teacher\" />
+    <Folder Include="teacher\migrations\" />
+    <Folder Include="teacher\templates\" />
+    <Folder Include="teacher\templates\teacher\" />
+    <Folder Include="templates\" />
+    <Folder Include="templates\registration\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Interpreter Include="env\">
+      <Id>env</Id>
+      <Version>0.0</Version>
+      <Description>env (Python 3.12 (64-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Django.targets" />
+  <!-- Specify pre- and post-build commands in the BeforeBuild and 
+       AfterBuild targets below. -->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <AutoAssignPort>True</AutoAssignPort>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

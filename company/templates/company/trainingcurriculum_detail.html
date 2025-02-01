@@ -1,0 +1,122 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<h1>{{ object }}</h1>
+<table border="1">
+    <tr>
+        <th align="right">研修カリキュラム名</th>
+        <td>{{ object }}</td>
+        <td><a href="{% url 'company:training_curriculum-update' object.id %}">編集</a></td>
+        <td><a href="{% url 'company:training_curriculum-delete' object.id %}">削除</a></td>
+    </tr>
+</table>
+<table border="0">
+    <tr>
+        <th>
+            コース
+            <form action="{% url 'company:curriculum_course-create' %}">
+                <input type="hidden" name="curriculum_id" value="{{ object.id }}" id="id_curriculum_id" />
+                <input type="submit" value="追加" />
+            </form>
+        </th>
+        <th>
+            グループ
+            <form action="{% url 'company:curriculum_group-create' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="curriculum_id" value="{{ object.id }}" id="id_curriculum_id" />
+                <input type="submit" value="追加" />
+            </form>
+        </th>
+        <th>
+            法人受講生
+        </th>
+        <th>
+            テスト
+            <form action="{% url 'company:curriculum_exam-create' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="curriculum_id" value="{{ object.id }}" id="id_curriculum_id" />
+                <input type="submit" value="追加" />
+            </form>
+        </th>
+    </tr>
+    <tr>
+        <td valign="top">
+            {% if courses %}
+            <table border="1">
+                <tr><th>受講順</th><th>コース</th><th></th></tr>
+                {% for course in courses %}
+                <tr>
+                    <td align="right">{{ course.attending_order }}</td>
+                    <td><a href="{% url 'company:curriculum_course-detail' course.id %}">{{ course.course }}</a></td>
+                    <td><a href="{% url 'company:curriculum_course-delete' course.id %}">削除</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+            <form action="{% url 'company:curriculum_course-create' %}">
+                <input type="hidden" name="curriculum_id" value="{{ object.id }}" id="id_curriculum_id" />
+                <input type="submit" value="追加" />
+            </form>
+            {% endif %}
+        </td>
+        <td valign="top">
+            {% if groups %}
+            <table border="1">
+                <tr><th>グループ</th><th>受講開始可能<br />年月日</th><th>受講完了期限<br />年月日</th><th></th><th></th></tr>
+                {% for group in groups %}
+                <tr>
+                    <td><a href="{% url 'company:group_curriculum-detail' group.id %}">{{ group.group }}</a></td>
+                    <td>{{ group.date_startable_attending }}</td>
+                    <td>{{ group.attending_complete_deadline_date }}</td>
+                    <td><a href="{% url 'company:group_curriculum-update' group.id %}">編集</a></td>
+                    <td><a href="{% url 'company:curriculum_group-delete' group.id %}">削除</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+            <form action="{% url 'company:curriculum_group-create' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="curriculum_id" value="{{ object.id }}" id="id_curriculum_id" />
+                <input type="submit" value="追加" />
+            </form>
+            {% endif %}
+        </td>
+        <td valign="top">
+            {% if students %}
+            <table border="1">
+                <tr><th>法人受講生</th><th>研修カリキュラム<br />受講開始日時</th><th>研修カリキュラム<br />受講完了日時</th></tr>
+                {% for student in students %}
+                <tr>
+                    <td>
+                        <a href="{% url 'company:student_curriculum-detail' student.id %}">{{ student.student }}</a>
+                    </td>
+                    <td>{{ student.training_curriculum_attending_start_time }}</td>
+                    <td>{{ student.training_curriculum_attending_complete_time }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            {% endif %}
+        </td>
+        <td valign="top">
+            {% if exams %}
+            <table border="1">
+                <tr><th>テスト</th><th>合格基準点</th><th></th><th></th></tr>
+                {% for exam in exams %}
+                <tr>
+                    <td><a href="{% url 'company:curriculum_exam-detail' exam.id %}">{{ exam.exam }}</a></td>
+                    <td align="right">{{ exam.passing_base_point }}</td>
+                    <td><a href="{% url 'company:curriculum_exam-update' exam.id %}">編集</a></td>
+                    <td><a href="{% url 'company:curriculum_exam-delete' exam.id %}">削除</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+            <form action="{% url 'company:curriculum_exam-create' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="curriculum_id" value="{{ object.id }}" id="id_curriculum_id" />
+                <input type="submit" value="追加" />
+            </form>
+            {% endif %}
+        </td>
+    </tr>
+
+</table>
+<a href="{% url 'company:company-detail' object.company.id %}">&lt; 戻る</a>
+{% endblock %}

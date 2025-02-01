@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="question_id" value="{{ question_id }}" id="id_question_value" />
+    {{ form.as_p }}
+    <input type="submit" value="回答" onclick="javascript:confirm('一度回答すると再編集できません。よろしいですか。')" />
+</form>
+<div>
+    <a href="JavaScript:history.back()">&lt; 戻る</a>
+</div>
+
+{% endblock %}

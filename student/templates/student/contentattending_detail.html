@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<h1>コンテンツ「{{ object.content }}」</h1>
+<table border="1">
+    <tr><th align="right">コンテンツ名</th><td>{{ object.content }}</td></tr>
+    <tr><th align="right">受講開始日時</th><td>{{ object.start_time }}</td></tr>
+    <tr><th align="right">受講完了日時</th><td>{{ object.complete_time }}</td></tr>
+</table>
+{% if questions %}
+<h2>質問</h2>
+<table border="1">
+    <tr><th>質問タイトル</th><th>質問文</th><th></th><th></th></tr>
+    {% for question in questions %}
+    <tr>
+        <td><a href="{% url 'student:question-detail' question.id %}">{{ question.question_title }}</a></td>
+        <td>{{ question.question_text }}</td>
+        <td><a href="{% url 'student:question-update' question.id %}">編集</a></td>
+        <td><a href="{% url 'student:question-delete' question.id %}">削除</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+<form action="{% url 'student:question-create' %}">
+    <input type="hidden" name="content_attending_id" value="{{ object.id }}" id="id_content_attending_id" />
+    <input type="submit" value="質問" />
+</form>
+<div>
+    <a href="JavaScript:history.back()">&lt; 戻る</a>
+</div>
+
+{% endblock %}

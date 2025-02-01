@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+{% if False %}
+<h1>{{ object }}</h1>
+<a href="JavaScript:history.back()">&lt; 戻る</a>
+{% endif %}
+<table border="1">
+    <tr><th align="right">グループ</th><td><a href="{% url 'company:group-detail' object.group.id %}">{{ object.group }}</a></td></tr>
+    <tr><th align="right">カリキュラム</th><td><a href="{% url 'company:training_curriculum-detail' object.curriculum.id %}">{{ object.curriculum }}</a></td></tr>
+    <tr><th align="right">受講開始可能年月日</th><td>{{ object.date_startable_attending }}</td></tr>
+    <tr><th align="right">受講完了期限年月日</th><td>{{ object.attending_complete_deadline_date }}</td></tr>
+</table>
+<td><a href="{% url 'company:group_curriculum-update' object.id %}">編集</a></td>
+<td><a href="{% url 'company:group_curriculum-delete' object.id %}">削除</a></td>
+{% endblock %}

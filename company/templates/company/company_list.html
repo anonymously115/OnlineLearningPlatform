@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h1>企業一覧</h1>
+<table border="1">
+    <tr>
+        <th>企業名</th><th></th><th></th>
+    </tr>
+    {% for company in object_list %}
+    <tr>
+        <td><a href="{% url 'company:company-detail' company.id %}">{{ company }}</a></td>
+        <td><a href="{% url 'company:company-update' company.id %}">編集</a></td>
+        <td><a href="{% url 'company:company-delete' company.id %}">削除</a></td>
+    </tr>
+    {% endfor %}
+</table>
+<a href="{% url 'company:company-create' %}">作成</a>
+<a href="{% url 'online_learning_platform:index' %}">&lt; 戻る</a>
+{% endblock %}

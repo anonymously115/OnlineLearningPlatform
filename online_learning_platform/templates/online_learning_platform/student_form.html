@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<h1>支払情報の{{ object|yesno:'更新,登録'}}</h1>
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="{{ object|yesno:'更新,登録'}}" />
+</form>
+<div>
+    <a href="JavaScript:history.back()">&lt; 戻る</a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<h1>{{ object }}</h1>
+<table border="1">
+    <tr>
+        <th align="right">グループ名</th>
+        <td>{{ object }}</td>
+        <td><a href="{% url 'company:group-update' object.id %}">編集</a></td>
+        <td><a href="{% url 'company:group-delete' object.id %}">削除</a></td>
+    </tr>
+</table>
+<table border="0">
+    <tr>
+        <th>
+            法人受講生
+            <form action="{% url 'company:group_student-create' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="group_id" value="{{ object.id }}" id="id_group_id" />
+                <input type="submit" value="追加" />
+            </form>
+        </th>
+        <th>
+            カリキュラム
+            <form action="{% url 'company:group_curriculum-create' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="group_id" value="{{ object.id }}" id="id_group_id" />
+                <input type="submit" value="追加" />
+            </form>
+        </th>
+    </tr>
+    <tr>
+        <td valign="top">
+            {% if students %}
+            <table border="1">
+                <tr><th>アカウント名</th><th></th></tr>
+                {% for student in students %}
+                <tr>
+                    <td><a href="{% url 'company:group_student-detail' student.id %}">{{ student.student }}</a></td>
+                    <td><a href="{% url 'company:group_student-delete' student.id %}">削除</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+            <form action="{% url 'company:group_student-create' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="group_id" value="{{ object.id }}" id="id_group_id" />
+                <input type="submit" value="追加" />
+            </form>
+            {% endif %}
+        </td>
+        <td valign="top">
+            {% if curriculums %}
+            <table border="1">
+                <tr><th>カリキュラム</th><th>受講開始可能<br />年月日</th><th>受講完了期限<br />年月日</th><th></th><th></th></tr>
+                {% for curriculum in curriculums %}
+                <tr>
+                    <td><a href="{% url 'company:group_curriculum-detail' curriculum.id %}">{{ curriculum.curriculum }}</a></td>
+                    <td>{{ curriculum.date_startable_attending }}</td>
+                    <td>{{ curriculum.attending_complete_deadline_date }}</td>
+                    <td><a href="{% url 'company:group_curriculum-update' curriculum.id %}">編集</a></td>
+                    <td><a href="{% url 'company:group_curriculum-delete' curriculum.id %}">削除</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+            <form action="{% url 'company:group_curriculum-create' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="group_id" value="{{ object.id }}" id="id_group_id" />
+                <input type="submit" value="追加" />
+            </form>
+            {% endif %}
+        </td>
+    </tr>
+</table>
+<a href="{% url 'company:company-detail' object.company.id %}">&lt; 戻る</a>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h1>コース一覧</h1>
+<table border="1">
+    <tr>
+        <th>コース名</th>
+        <th>標準価格</th>
+        <th>購入</th>
+    </tr>
+    {% for course in object_list %}
+    <tr>
+        <td>{{ course }}</td>
+        <td align="right">{{ course.standard_price }}</td>
+        <td align="center">
+            <form action="{% url 'student:course_purchase-create' %}", method="post">
+                {% csrf_token %}
+                <input type="hidden" name="course_id" value="{{ course.id }}" id="id_course_id" />
+                <input type="submit" value="購入" />
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<a href="{% url 'student:index' %}">&lt; 戻る</a>
+{% endblock %}

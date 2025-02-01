@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<h1>{{ object }}</h1>
+<table border="1">
+    <tr><th align="right">選択文</th><td>{{ object }}</td></tr>
+    <tr><th align="right">正解フラグ</th><td>{{ object.correct_answer_flag }}</td></tr>
+</table>
+<a href="{% url 'teacher:exam_question_choice-update' object.id %}">テスト設問選択肢編集</a>
+<a href="{% url 'teacher:exam_question_choice-delete' object.id %}">テスト設問選択肢削除</a>
+<a href="{% url 'teacher:exam_question-detail' object.question_id %}">&lt; 戻る</a>
+
+{% endblock %}

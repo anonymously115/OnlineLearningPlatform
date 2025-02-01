@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+{% if object %}
+<table border="1">
+    <tr><th align="right">グループ</th><td>{{ object.group }}</td></tr>
+    <tr><th align="right">カリキュラム</th><td>{{ object.curriculum }}</td></tr>
+</table>
+{% else %}
+    {% if group %}
+<h1>グループ「{{ group }}」</h1>
+<h2>カリキュラムの{{ object|yesno:'編集,登録'}}</h2>
+    {% endif %}
+    {% if curriculum %}
+<h1>カリキュラム「{{ curriculum }}」</h1>
+<h2>グループの{{ object|yesno:'編集,登録'}}</h2>
+    {% endif %}
+{% endif %}
+
+<form action="" method="post">
+    {% csrf_token %}
+    {% if object %}
+    <input type="hidden" name="pk" value="{{ object.id }}" id="id_pk" />
+    {% else %}
+    {% if group %}
+    <input type="hidden" name="group_id" value="{{ group.id }}" id="id_group_id" />
+    {% endif %}
+    {% if curriculum %}
+    <input type="hidden" name="curriculum_id" value="{{ curriculum.id }}" id="id_curriculum_id" />
+    {% endif %}
+    {% endif %}
+    {{ form.as_p }}
+    <input type="submit" value="{{ object|yesno:'更新,登録'}}" />
+</form>
+<div>
+    <a href="JavaScript:history.back()">&lt; 戻る</a>
+</div>
+
+{% endblock %}

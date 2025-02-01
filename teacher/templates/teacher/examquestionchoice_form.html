@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<h1>テスト設問選択肢の{{ object|yesno:'編集,作成'}}</h1>
+
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="question_id" value="{{ question_id }}" id="id_question_id" />
+    {{ form.as_p }}
+    <input type="submit" value="{{ object|yesno:'更新,作成'}}" />
+</form>
+<div>
+    <a href="JavaScript:history.back()">&lt; 戻る</a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<h1>研修カリキュラムの{{ object|yesno:'編集,登録'}}</h1>
+
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="company_id" value="{{ company_id }}" id="id_company_id" />
+    {{ form.as_p }}
+    <input type="submit" value="{{ object|yesno:'更新,登録'}}" />
+</form>
+<div>
+    <a href="JavaScript:history.back()">&lt; 戻る</a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+{% if False %}
+<h1>{{ object }}</h1>
+{% endif %}
+<table border="1">
+    <tr><th align="right">カリキュラム</th><td>{{ object.curriculum }}</td></tr>
+    <tr><th align="right">テスト</th><td>{{ object.exam }}</td></tr>
+    <tr><th align="right">合格基準点</th><td>{{ object.passing_base_point }}</td></tr>
+</table>
+<a href="{% url 'company:curriculum_exam-update' object.id %}">編集</a>
+<a href="{% url 'company:curriculum_exam-delete' object.id %}">削除</a>
+<a href="{% url 'company:training_curriculum-detail' object.curriculum.id %}">&lt; 戻る</a>
+{% endblock %}

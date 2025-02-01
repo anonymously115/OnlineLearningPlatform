@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<h1>{{ object }}</h1>
+<table border="1">
+    <tr>
+        <th align="right">アカウント名</th>
+        <td>{{ object }}</td>
+        <td><a href="{% url 'company:corporate_attending_student-update' object.id %}">編集</a></td>
+        <td><a href="{% url 'company:corporate_attending_student-delete' object.id %}">削除</a></td>
+    </tr>
+</table>
+{% if curriculums %}
+<table border="1">
+    <tr><th>グループ</th><th>カリキュラム</th><th></th></tr>
+    {% for curriculum in curriculums %}
+    <tr>
+        <td>{{ curriculum.group }}</td>
+        <td>{{ curriculum.curriculum }}</td>
+        <td>{{ curriculum.corporate_attending_student }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+<a href="{% url 'company:company-detail' object.company.id %}">&lt; 戻る</a>
+{% endblock %}

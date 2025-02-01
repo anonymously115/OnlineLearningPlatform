@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<h1>{{ object }}</h1>
+<table border="1">
+    <tr>
+        <th align="right">コンテンツ名</th>
+        <td>{{ object }}</td>
+    </tr>
+    <tr>
+        <th align="right">講義時間</th>
+        <td>{{ object.lecture_time }}</td>
+    </tr>
+</table>
+<a href="{% url 'teacher:lecture_video-update' object.id %}">講義動画編集</a>
+
+{% if questions %}
+<table border="1">
+    <tr><th>質問</th><th>コメント</th></tr>
+    {% for question in questions %}
+    <tr>
+        <td>
+            {{ question }}
+        </td>
+        <td>
+            {% if question.comment_set %}
+            {{ question.comment_set }}
+            {% else %}
+            <form action="{% url 'teacher:comment-create' %}">
+                <input type="hidden" name="question_id" value="{{ question.id }}" id="id_question_id" />
+                <input type="submit" value="回答" />
+            </form>
+            {% endif %}
+        </td>
+    </tr>
+
+    {% endfor %}
+</table>
+{% endif %}
+
+
+<a href="{% url 'teacher:lecture_video-delete' object.id %}">講義動画削除</a>
+<a href="{% url 'teacher:section-detail' object.section_id %}">&lt; 戻る</a>
+
+{% endblock %}

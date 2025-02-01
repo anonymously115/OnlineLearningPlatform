@@ -1,0 +1,14 @@
+﻿{% extends 'layout.html' %}
+{% block content %}
+
+<h1>テスト「{{ object.content }}」</h1>
+<form action="{% url 'student:answer' %}" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="exam_id" value="{{ object.content.id }}" id="id_exam_id" />
+    <input type="hidden" name="section_attending_id" value="{{ section_attending.id }}" id="id_section_attending_id" />
+    {% for form in forms %}{{ form.as_p }}{% endfor %}
+    <input type="submit" />
+</form>
+
+
+{% endblock %}

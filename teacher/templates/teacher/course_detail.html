@@ -1,0 +1,55 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<h1>{{ object }}</h1>
+<table border="1">
+    <tr><th align="right">コース名</th><td>{{ object }}</td></tr>
+    <tr><th align="right">標準価格</th><td>{{ object.standard_price }}</td></tr>
+</table>
+<form action="{% url 'teacher:course-update' object.id %}">
+    <input type="submit" value="コース編集" />
+</form>
+<h2>セクション</h2>
+    {% if sections %}
+<table border="1">
+    <tr><th>#</th><th>セクション名</th></tr>
+    {% for section in sections %}
+    <tr>
+        <td align="right">{{ section.section_no }}</td>
+        <td><a href="{% url 'teacher:section-detail' section.id %}">{{ section.section_name }}</a></td>
+    </tr>
+    {% endfor %}
+</table>
+    {% endif %}
+<form action="{% url 'teacher:section-create' %}">
+    <input type="hidden" name="course_id" value="{{ object.id }}" id="id_course_id" />
+    <input type="submit" value="セクション登録" />
+</form>
+<h2>クーポン</h2>
+    {% if coupons %}
+<table border="1">
+    <tr><th>割引率</th><th>値引額</th><th>適用開始年月日</th><th>適用終了年月日</th><th>使用可能人数</th><th>クーポン発行年月日</th><th>詳細</th></tr>
+    {% for coupon in coupons %}
+    <tr>
+        <td align="right">{% if coupon.discount_rate %}{{ coupon.discount_rate }}{% endif %}</td>
+        <td align="right">{% if coupon.discount_amount %}{{ coupon.discount_amount }}{% endif %}</td>
+        <td align="center">{{ coupon.applying_start_date }}</td>
+        <td align="center">{{ coupon.applying_end_date }}</td>
+        <td align="right">{{ coupon.available_count }}</td>
+        <td align="center">{{ coupon.coupon_issuing_date }}</td>
+        <td><a href="{% url 'teacher:coupon-detail' coupon.id %}">詳細</a></td>
+    </tr>
+    {% endfor %}
+</table>
+    {% endif %}
+<form action="{% url 'teacher:coupon-create' %}">
+    <input type="hidden" name="course_id" value="{{ object.id }}" id="id_course_id" />
+    <input type="submit" value="クーポン発行" />
+</form>
+<form action="{% url 'teacher:course-delete' object.id %}">
+    <input type="submit" value="コース削除" />
+</form>
+<p>
+    <a href="{% url 'teacher:index' %}">&lt; 戻る</a>
+</p>
+    {% endblock %}

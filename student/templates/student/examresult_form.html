@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<h1>「{{ content }}」{{ object|yesno:'評価,開始'}}</h1>
+
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="section_attending_id" value="{{ section_attending.id }}" id="id_section_attending_id" />
+    <input type="hidden" name="content_id" value="{{ content.id }}" id="id_content_id" />
+    {{ form.as_p }}
+    <input type="submit" value="{{ object|yesno:'評価,開始'}}" />
+</form>
+<div>
+    <a href="JavaScript:history.back()">&lt; 戻る</a>
+</div>
+
+{% endblock %}

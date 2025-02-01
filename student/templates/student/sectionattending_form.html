@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<h1>セクション「{{ section }}」{{ object|yesno:'評価,受講開始'}}</h1>
+
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="course_attending_id" value="{{ course_attending.id }}" id="id_course_attending_id" />
+    <input type="hidden" name="section_id" value="{{ section.id }}" id="id_section_id" />
+    {{ form.as_p }}
+    <input type="submit" value="{{ object|yesno:'評価,受講開始'}}" />
+</form>
+<div>
+    <a href="JavaScript:history.back()">&lt; 戻る</a>
+</div>
+
+{% endblock %}

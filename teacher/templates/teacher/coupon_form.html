@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<h1>クーポンの{{ object|yesno:'編集,発行'}}</h1>
+
+<table border="1">
+    <tr><th>コース名</th><th>標準価格</th></tr>
+    <tr><td>{{ course }}</td><td>{{ course.standard_price }}</td></tr>
+</table>
+
+
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="course_id" value="{{ course.id }}" id="id_course_id" />
+    {{ form.as_p }}
+    <input type="submit" value="{{ object|yesno:'更新,発行'}}" />
+</form>
+<div>
+    <a href="JavaScript:history.back()">&lt; 戻る</a>
+</div>
+
+{% endblock %}

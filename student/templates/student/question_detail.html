@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<h1>質問「{{ object }}」</h1>
+
+<table border="1">
+    <tr><th align="right">コース</th><td>{{ object.content.section.course }}</td></tr>
+    <tr><th align="right">セクション</th><td>{{ object.content.section }}</td></tr>
+    <tr><th align="right">コンテンツ</th><td>{{ object.content }}</td></tr>
+    <tr><th align="right">質問タイトル</th><td>{{ object.question_title }}</td></tr>
+    <tr><th align="right">質問文</th><td>{{ object.question_text }}</td></tr>
+    <tr><th align="right">質問日時</th><td>{{ object.question_time }}</td></tr>
+    {% if comment %}
+    <tr><th align="right">コメント文</th><td>{{ comment }}</td></tr>
+    <tr><th align="right">コメント日時</th><td>{{ comment.comment_time }}</td></tr>
+    {% endif %}
+</table>
+
+<div>
+    <a href="JavaScript:history.back()">&lt; 戻る</a>
+    <a href="{% url 'student:question-update' object.id %}">編集</a>
+    <a href="{% url 'student:question-delete' object.id %}">削除</a>
+</div>
+
+{% endblock %}

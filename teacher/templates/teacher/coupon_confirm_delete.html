@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<h1>クーポンの削除</h1>
+<div>コース名：{{ object.course }}</div>
+    {% if object.disount_rate %}
+<div>割引率：{{ object.discount_rate }}</div>
+    {% endif %}
+    {% if object.disount_amount %}
+<div>値引額：{{ object.discount_amount }}</div>
+    {% endif %}
+<div>適用開始年月日：{{ object.applying_start_date }}</div>
+<div>適用終了年月日：{{ object.applying_end_date }}</div>
+<div>使用可能人数：{{ object.available_count }}</div>
+<div>クーポン発行年月日：{{ object.coupon_issuing_date }}</div>
+<p>を削除しますか。</p>
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="submit" value="削除する" />
+</form>
+
+<div>
+    <p><a href="JavaScript:history.back()">&lt; 戻る</a></p>
+</div>
+
+{% endblock %}

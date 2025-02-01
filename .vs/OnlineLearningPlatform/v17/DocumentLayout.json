@@ -1,0 +1,139 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\atsuo\\source\\repos\\OnlineLearningPlatform\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C09EC4BF-2A66-4611-8D7B-6F6EAEE10612}|OnlineLearningPlatform.pyproj|C:\\Users\\atsuo\\source\\repos\\OnlineLearningPlatform\\company\\templates\\company\\corporateattendingstudent_detail.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C09EC4BF-2A66-4611-8D7B-6F6EAEE10612}|OnlineLearningPlatform.pyproj|solutionrelative:company\\templates\\company\\corporateattendingstudent_detail.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C09EC4BF-2A66-4611-8D7B-6F6EAEE10612}|OnlineLearningPlatform.pyproj|C:\\Users\\atsuo\\source\\repos\\OnlineLearningPlatform\\company\\views.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{C09EC4BF-2A66-4611-8D7B-6F6EAEE10612}|OnlineLearningPlatform.pyproj|solutionrelative:company\\views.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C09EC4BF-2A66-4611-8D7B-6F6EAEE10612}|OnlineLearningPlatform.pyproj|C:\\Users\\atsuo\\source\\repos\\OnlineLearningPlatform\\teacher\\templates\\teacher\\lecturevideo_detail.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C09EC4BF-2A66-4611-8D7B-6F6EAEE10612}|OnlineLearningPlatform.pyproj|solutionrelative:teacher\\templates\\teacher\\lecturevideo_detail.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C09EC4BF-2A66-4611-8D7B-6F6EAEE10612}|OnlineLearningPlatform.pyproj|C:\\Users\\atsuo\\source\\repos\\OnlineLearningPlatform\\company\\models.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{C09EC4BF-2A66-4611-8D7B-6F6EAEE10612}|OnlineLearningPlatform.pyproj|solutionrelative:company\\models.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C09EC4BF-2A66-4611-8D7B-6F6EAEE10612}|OnlineLearningPlatform.pyproj|C:\\Users\\atsuo\\source\\repos\\OnlineLearningPlatform\\teacher\\views.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{C09EC4BF-2A66-4611-8D7B-6F6EAEE10612}|OnlineLearningPlatform.pyproj|solutionrelative:teacher\\views.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C09EC4BF-2A66-4611-8D7B-6F6EAEE10612}|OnlineLearningPlatform.pyproj|C:\\Users\\atsuo\\source\\repos\\OnlineLearningPlatform\\student\\views.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{C09EC4BF-2A66-4611-8D7B-6F6EAEE10612}|OnlineLearningPlatform.pyproj|solutionrelative:student\\views.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C09EC4BF-2A66-4611-8D7B-6F6EAEE10612}|OnlineLearningPlatform.pyproj|C:\\Users\\atsuo\\source\\repos\\OnlineLearningPlatform\\company\\urls.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{C09EC4BF-2A66-4611-8D7B-6F6EAEE10612}|OnlineLearningPlatform.pyproj|solutionrelative:company\\urls.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "models.py",
+              "DocumentMoniker": "C:\\Users\\atsuo\\source\\repos\\OnlineLearningPlatform\\company\\models.py",
+              "RelativeDocumentMoniker": "company\\models.py",
+              "ToolTip": "C:\\Users\\atsuo\\source\\repos\\OnlineLearningPlatform\\company\\models.py",
+              "RelativeToolTip": "company\\models.py",
+              "ViewState": "AQIAACIAAAAAAAAAAAAcwDAAAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2025-01-31T09:49:18.152Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "lecturevideo_detail.html",
+              "DocumentMoniker": "C:\\Users\\atsuo\\source\\repos\\OnlineLearningPlatform\\teacher\\templates\\teacher\\lecturevideo_detail.html",
+              "RelativeDocumentMoniker": "teacher\\templates\\teacher\\lecturevideo_detail.html",
+              "ToolTip": "C:\\Users\\atsuo\\source\\repos\\OnlineLearningPlatform\\teacher\\templates\\teacher\\lecturevideo_detail.html",
+              "RelativeToolTip": "teacher\\templates\\teacher\\lecturevideo_detail.html",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAswBkAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-01-31T04:48:57.181Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "views.py",
+              "DocumentMoniker": "C:\\Users\\atsuo\\source\\repos\\OnlineLearningPlatform\\teacher\\views.py",
+              "RelativeDocumentMoniker": "teacher\\views.py",
+              "ToolTip": "C:\\Users\\atsuo\\source\\repos\\OnlineLearningPlatform\\teacher\\views.py",
+              "RelativeToolTip": "teacher\\views.py",
+              "ViewState": "AQIAABcBAAAAAAAAAAAMwCEBAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2025-01-31T02:49:31.472Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "views.py",
+              "DocumentMoniker": "C:\\Users\\atsuo\\source\\repos\\OnlineLearningPlatform\\student\\views.py",
+              "RelativeDocumentMoniker": "student\\views.py",
+              "ToolTip": "C:\\Users\\atsuo\\source\\repos\\OnlineLearningPlatform\\student\\views.py",
+              "RelativeToolTip": "student\\views.py",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2025-01-31T02:49:13.516Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "views.py",
+              "DocumentMoniker": "C:\\Users\\atsuo\\source\\repos\\OnlineLearningPlatform\\company\\views.py",
+              "RelativeDocumentMoniker": "company\\views.py",
+              "ToolTip": "C:\\Users\\atsuo\\source\\repos\\OnlineLearningPlatform\\company\\views.py",
+              "RelativeToolTip": "company\\views.py",
+              "ViewState": "AQIAAHkAAAAAAAAAAAAMwH8AAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2025-01-31T02:48:53.034Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "corporateattendingstudent_detail.html",
+              "DocumentMoniker": "C:\\Users\\atsuo\\source\\repos\\OnlineLearningPlatform\\company\\templates\\company\\corporateattendingstudent_detail.html",
+              "RelativeDocumentMoniker": "company\\templates\\company\\corporateattendingstudent_detail.html",
+              "ToolTip": "C:\\Users\\atsuo\\source\\repos\\OnlineLearningPlatform\\company\\templates\\company\\corporateattendingstudent_detail.html",
+              "RelativeToolTip": "company\\templates\\company\\corporateattendingstudent_detail.html",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAswBMAAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-01-31T02:40:56.481Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "urls.py",
+              "DocumentMoniker": "C:\\Users\\atsuo\\source\\repos\\OnlineLearningPlatform\\company\\urls.py",
+              "RelativeDocumentMoniker": "company\\urls.py",
+              "ToolTip": "C:\\Users\\atsuo\\source\\repos\\OnlineLearningPlatform\\company\\urls.py",
+              "RelativeToolTip": "company\\urls.py",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2025-01-31T02:48:54.597Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

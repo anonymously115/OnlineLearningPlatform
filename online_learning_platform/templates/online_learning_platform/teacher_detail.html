@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+{% block content %}
+{% if courses %}
+<table border="1">
+    <tr><th>コース名</th><th>標準価格</th></tr>
+    {% for course in courses %}
+    <tr>
+        <td><a href="{% url 'teacher:course-detail' course.id %}">{{ course.course_name }}</a></td>
+        <td align="right">{{ course.standard_price }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+<form action="{% url 'teacher:course-create' %}">
+    <input type="submit" value="コース登録" />
+</form>
+<a href="{% url 'online_learning_platform:index' %}">&lt; 戻る</a>
+{% endblock %}
